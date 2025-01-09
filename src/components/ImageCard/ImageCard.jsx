@@ -1,9 +1,9 @@
-const ImageCard = () => {
+const ImageCard = ({ item }) => {
 
     return (
 
         <div>
-            <img src="" alt="" />
+            <img src={item.urls.small}></img>
         </div>
 
     )
