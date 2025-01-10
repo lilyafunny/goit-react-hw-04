@@ -1,10 +1,11 @@
 .modal {
-    position: absolute;
+    position: fixed;
     top: 40px;
     left: 40px;
     right: 40px;
     bottom: 40px;
-    background-color: transparent;
+    background-color: blue;
+    width: fit-content;
 
 }
 
@@ -15,16 +16,19 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 2;
-    inset: 0px;
+    z-index: 1;
+
+
 }
 
 .contanier {
     width: 100%;
     height: 100%;
+
 }
 
 .img {
+
     width: 100%;
     height: 100%;
     object-fit: contain;
