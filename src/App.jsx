@@ -7,14 +7,36 @@ import ImageGallery from './components/ImageGallery/ImageGallery';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn'
 import SearchBar from './components/SearchBar/SearchBar'
 
+import ImageModal from './components/ImageModal/ImageModal'
+
+//----------------------
+
+
+
+
+
+//----------------------
+
+
 
 const App = () => {
+
+  //----------------------
+
+
+
+  //----------------------
 
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
+
+
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
 
@@ -55,16 +77,31 @@ const App = () => {
   }
 
 
+  const handleClickImage = (imageUrl) => {
+    setSelectedImage(imageUrl);
+    setIsModalOpen(true);
+  }
+
+  const handleClickImageClose = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  }
+
+
 
   return (
     <>
 
       <h1>Photo</h1>
       <SearchBar onSubmit={handleChangeQuery} />
-      {photos.length > 0 && <ImageGallery photos={photos} />}
+      {photos.length > 0 && <ImageGallery photos={photos} onImageClick={handleClickImage} />}
       <LoadMoreBtn onChangePage={handleChangePage} />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
+
+      <ImageModal isOpen={isModalOpen} onClose={handleClickImageClose} image={selectedImage} />
+
+
 
     </>
   )

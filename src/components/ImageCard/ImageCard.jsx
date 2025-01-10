@@ -1,9 +1,11 @@
+import s from "./ImageCard.module.css"
+
 const ImageCard = ({ item }) => {
 
     return (
 
-        <div>
-            <img src={item.urls.small}></img>
+        < div className={s.contanier}>
+            <img src={item.urls.small} className={s.img} />
         </div>
 
     )
