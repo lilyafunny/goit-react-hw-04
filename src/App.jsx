@@ -1,31 +1,15 @@
 import { useEffect, useState } from 'react';
-import './App.css'
 import { fetchPhotos } from './Services/api';
 import Loader from './components/Loader/Loader';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn'
 import SearchBar from './components/SearchBar/SearchBar'
-
 import ImageModal from './components/ImageModal/ImageModal'
-
-//----------------------
-
-
-
-
-
-//----------------------
-
-
 
 const App = () => {
 
-  //----------------------
 
-
-
-  //----------------------
 
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -90,12 +74,11 @@ const App = () => {
 
 
   return (
-    <>
+    <div>
 
-      <h1>Photo</h1>
       <SearchBar onSubmit={handleChangeQuery} />
       {photos.length > 0 && <ImageGallery photos={photos} onImageClick={handleClickImage} />}
-      <LoadMoreBtn onChangePage={handleChangePage} />
+      {photos.length > 0 && <LoadMoreBtn onChangePage={handleChangePage} />}
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
 
@@ -103,7 +86,7 @@ const App = () => {
 
 
 
-    </>
+    </div>
   )
 }
 

@@ -22,15 +22,7 @@ const ImageModal = ({ isOpen, onClose, image }) => {
                 className={s.modal}
                 onClick={handleClose}
             >
-
-
-                <div className={s.contanier}>
-                    <img src={image} className={s.img} />
-
-                </div >
-
-
-
+                <img src={image} className={s.img} />
             </Modal >
         </>
 
@@ -40,5 +32,4 @@ const ImageModal = ({ isOpen, onClose, image }) => {
 }
 
 export default ImageModal
-
 

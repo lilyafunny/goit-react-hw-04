@@ -5,11 +5,11 @@ const ImageCard = ({ item }) => {
     return (
 
         < div className={s.contanier}>
-            <img src={item.urls.small} className={s.img} />
+            <img src={item.urls.small} alt={item.alt_description
+            } className={s.img} />
         </div>
 
     )
-
 
 }
 
